@@ -11,5 +11,8 @@ class UserJob(private val template: KafkaTemplate<Any, Any>) {
     fun scheduleFixedDelayTask() {
         val result = template.send("user.changed", "test").get()
         println(result)
+
+        val result2 = template.send("user-status.changed", "test 2##").get()
+        println(result2)
     }
 }

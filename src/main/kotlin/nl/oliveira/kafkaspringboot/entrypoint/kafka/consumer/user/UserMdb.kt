@@ -10,4 +10,9 @@ class UserMdb {
     fun listen(value: String?) {
         println(value)
     }
+
+    @KafkaListener(id = "user-status", topics = ["user-status.changed"])
+    fun listenStatus(value: String?) {
+        println(value)
+    }
 }
